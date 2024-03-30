@@ -1,0 +1,30 @@
+name: Build and perform UI Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch: 
+
+jobs:
+
+  TEST-UI:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout branch
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm install
+    - name: Start Backend
+      run: npm run start-be
+    - name: Start Frontend
+      run: npm run start-fe
+    - name: Perform UI tests
+      run: npm run test-ui
