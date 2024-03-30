@@ -44,7 +44,7 @@ test('Verify "All Books" link is visible after user login', async ({page}) => {
     await page.fill("#email", appUser);
     await page.fill("#password", appPassword);
     await page.click("input[type='submit']");
-// Check if Logout buttons shows up
+// Check if Logout buttons shows up - commented because shows up on second run of the test, not on the first
     // const logoutButton = await page.$("#logoutBtn");
     // const isLogoutButtonVisible = await logoutButton.isVisible();
     // expect(isLogoutButtonVisible).toBe(true);
