@@ -20,6 +20,6 @@ jobs:
         node-version: 20.x
         cache: 'npm'
     - name: Install dependencies
-      run: npm install
+      run: npm install & npx playwright install
     - name: Start Backend and Frontend and Execute UI Tests
       run: npm run start-be & npm run start-fe & npm run test-ui
