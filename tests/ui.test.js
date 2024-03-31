@@ -409,7 +409,8 @@ test('Verify That the "Logout" Button Redirects Correctly', async ({page}) => {
 
     const logoutLink = await page.$('a[href="javascript:void(0)"]');
     await logoutLink.click();
-
+    await page.waitForURL(fePage + "/");
+  
     const redirectedURL = page.url();
-    expect(redirectedURL).toBe(fePage + "/catalog");
+    expect(redirectedURL).toBe(fePage + "/");
 })
